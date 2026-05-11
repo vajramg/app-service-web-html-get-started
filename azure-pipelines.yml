@@ -11,7 +11,7 @@ pool:
 
 variables:
 
-  azureSubscription: 'azdevops'
+  azureSubscription: 'my-webapp'
   webAppName: 'myapp988'
 
 steps:
@@ -30,7 +30,7 @@ steps:
     replaceExistingArchive: true
 - task: AzureWebApp@1
   inputs:
-    azureSubscription: $(Azure-Service-Connection)
+    azureSubscription: $(azureSubscription)
     appType: webAppLinux
     appName: $(webappName)
     package: '$(Build.ArtifactStagingDirectory)/site.zip'
